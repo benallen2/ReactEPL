@@ -23,7 +23,11 @@ module.exports = {
   resolve: {
     root: __dirname,
     alias: {
-      applicationStyles: 'app/styles/app.scss'
+      applicationStyles: 'app/styles/app.scss',
+      Main: 'app/components/Main.jsx',
+      Rankings: 'app/components/Rankings.jsx',
+      getStats: 'app/api/getStats.jsx',
+      TeamsList: 'app/components/TeamsList.jsx' 
     },
     extensions: ['', '.js', '.jsx']
   },
