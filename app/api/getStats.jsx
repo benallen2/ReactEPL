@@ -1,8 +1,11 @@
 var axios = require('axios');
 
-const TEAMS_DATA_URL = 'http://api.football-data.org/v1/competitions/398/teams';
+const TEAMS_DATA_URL = 'http://api.football-data.org/v1/competitions/426/leagueTable';
 
-//377df2fc3888b004
+//426 is the current EPL season competition id
+//data.res.standing.wins/draws/losses/playedGames/position/goals/goalDifference/goalsAgainst/points/AWAY/HOME
+//data.res.standing._links.team.href = API call value for that team data.
+
 
 module.exports = {
   getTeams: function () {
@@ -17,14 +20,25 @@ module.exports = {
       } else {
       let teamnames = [];
       let teamcrests = [];
-      let teamvalue = [];
       let teamData = [];
-      for(var i = 0; i < res.data.teams.length; i++){
-        teamnames.push(res.data.teams[i].name);
-        teamcrests.push(res.data.teams[i].crestUrl);
-        teamvalue.push(res.data.teams[i].squadMarketValue)
+      let ranks = [];
+      let league = [];
+      let goals = [];
+      let wins = [];
+      let losses = [];
+      let draws = [];
+      console.log(res.data);
+      league.push(res.data.leagueCaption);
+      for(var i = 0; i < res.data.standing.length; i++){
+        teamnames.push(res.data.standing[i].teamName);
+        teamcrests.push(res.data.standing[i].crestURI);
+        ranks.push(res.data.standing[i].position);
+        wins.push(res.data.standing[i].wins);
+        losses.push(res.data.standing[i].losses);
+        draws.push(res.data.standing[i].draws);
+        goals.push(res.data.standing[i].goals);
       }
-      teamData = [teamnames, teamcrests, teamvalue];
+      teamData = [teamnames, teamcrests, ranks, league, wins, losses, draws, goals];
       return teamData;
     }
     }, function (res) {
