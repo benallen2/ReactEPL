@@ -18,31 +18,49 @@ module.exports = {
       if(res.data.error){
         throw new Error (res.data.error)
       } else {
-      let teamnames = [];
-      let teamcrests = [];
+
       let teamData = [];
-      let ranks = [];
       let league = [];
-      let goals = [];
-      let wins = [];
-      let losses = [];
-      let draws = [];
-      console.log(res.data);
+
       league.push(res.data.leagueCaption);
+
       for(var i = 0; i < res.data.standing.length; i++){
-        teamnames.push(res.data.standing[i].teamName);
-        teamcrests.push(res.data.standing[i].crestURI);
-        ranks.push(res.data.standing[i].position);
-        wins.push(res.data.standing[i].wins);
-        losses.push(res.data.standing[i].losses);
-        draws.push(res.data.standing[i].draws);
-        goals.push(res.data.standing[i].goals);
+        teamData.push({
+          teamName: res.data.standing[i].teamName,
+          crest: res.data.standing[i].crestURI,
+          rank: res.data.standing[i].position,
+          wins: res.data.standing[i].wins,
+          losses: res.data.standing[i].losses,
+          draws: res.data.standing[i].draws,
+          goals: res.data.standing[i].goals,
+          teamLink: res.data.standing[i]._links.team.href,
+          points: res.data.standing[i].points
+        });
       }
-      teamData = [teamnames, teamcrests, ranks, league, wins, losses, draws, goals];
       return teamData;
     }
     }, function (res) {
       throw new Error (res.data.error)
     });
+  },
+  getSquad: function (team) {
+    var teamURL = team;
+
+    return axios.get(teamURL, {
+      headers: { 'X-Auth-Token': 'abe47765c6ef4dd7bf4626026794fc90' }
+    })
+    .then((res) => {
+      if(res.data.error){
+        throw new Error (res.data.error)
+      } else {
+        let squad = [];
+        for (var i = 0; i < res.data.players.length; i++){
+          squad.push({
+            playerName: res.data.players[i].name
+          })
+        }
+        return squad;
+      }
+    })
   }
 }
