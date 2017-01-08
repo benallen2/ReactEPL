@@ -27,7 +27,9 @@ module.exports = {
       Main: 'app/components/Main.jsx',
       getStats: 'app/api/getStats.jsx',
       TeamsList: 'app/components/TeamsList.jsx',
-      Squad: 'app/components/Squad.jsx'
+      Squad: 'app/components/Squad.jsx',
+      ShowSquadButton: 'app/components/ShowSquadButton.jsx',
+      Team: 'app/components/Team.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },

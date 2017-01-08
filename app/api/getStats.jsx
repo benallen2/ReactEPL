@@ -18,11 +18,7 @@ module.exports = {
       if(res.data.error){
         throw new Error (res.data.error)
       } else {
-
       let teamData = [];
-      let league = [];
-
-      league.push(res.data.leagueCaption);
 
       for(var i = 0; i < res.data.standing.length; i++){
         teamData.push({
@@ -34,7 +30,7 @@ module.exports = {
           draws: res.data.standing[i].draws,
           goals: res.data.standing[i].goals,
           teamLink: res.data.standing[i]._links.team.href,
-          points: res.data.standing[i].points
+          points: res.data.standing[i].points,
         });
       }
       return teamData;
@@ -44,7 +40,7 @@ module.exports = {
     });
   },
   getSquad: function (team) {
-    var teamURL = team;
+    var teamURL = team + "/players";
 
     return axios.get(teamURL, {
       headers: { 'X-Auth-Token': 'abe47765c6ef4dd7bf4626026794fc90' }
@@ -53,13 +49,14 @@ module.exports = {
       if(res.data.error){
         throw new Error (res.data.error)
       } else {
-        let squad = [];
-        for (var i = 0; i < res.data.players.length; i++){
-          squad.push({
-            playerName: res.data.players[i].name
-          })
-        }
-        return squad;
+        console.log(res.data);
+        return res.data.players
+        // let squad = [];
+        // for (var i = 0; i < res.data.players.length; i++){
+        //   squad.push({
+        //     playerName: res.data.players[i].name
+        //   })
+        // }
       }
     })
   }

@@ -3,11 +3,11 @@ var getStats = require('getStats');
 
 var TeamsList = require('TeamsList');
 
-
 var Main = React.createClass({
   getInitialState: function () {
     return {
-      teams: []
+      teams: [],
+      squads: []
     }
   },
   componentDidMount: function () {
@@ -18,13 +18,16 @@ var Main = React.createClass({
       });
     })
   },
+  componentDidUpdate: function () {
+
+  },
   render: function () {
     var {teams} = this.state;
 
     return (
       <div>
         <h2 style={{textAlign: 'center'}}>Premier League 2016/17</h2>
-        <TeamsList teams={teams}/>
+        <TeamsList teams={teams} />
       </div>
     )
   }
