@@ -49,14 +49,14 @@ module.exports = {
       if(res.data.error){
         throw new Error (res.data.error)
       } else {
-        console.log(res.data);
-        return res.data.players
-        // let squad = [];
-        // for (var i = 0; i < res.data.players.length; i++){
-        //   squad.push({
-        //     playerName: res.data.players[i].name
-        //   })
-        // }
+        var squad = res.data.players;
+
+        for (var i = 0; i < squad.length; i++){
+          if(squad[i].jerseyNumber === null){
+            squad[i].jerseyNumber = "-";
+          }
+        }
+        return squad;
       }
     })
   }
