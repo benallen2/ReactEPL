@@ -42,6 +42,10 @@ module.exports = {
         },
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/
+      },
+      {
+        test: /\.(png|jpg)$/,
+        loader: 'url-loader?limit=1000000'
       }
     ]
   },

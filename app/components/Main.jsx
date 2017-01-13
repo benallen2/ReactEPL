@@ -25,7 +25,7 @@ var Main = React.createClass({
     var {teams} = this.state;
 
     return (
-      <div>
+      <div className="main">
         <h2 style={{textAlign: 'center'}}>Premier League 2016/17</h2>
         <TeamsList teams={teams} />
       </div>

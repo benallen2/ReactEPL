@@ -8,7 +8,8 @@ var Main = require('Main');
 $(document).foundation();
 
 //App Css
-require('style!css!sass!applicationStyles')
+require('style!css!sass!applicationStyles');
+
 
 ReactDOM.render(
   <Main />,

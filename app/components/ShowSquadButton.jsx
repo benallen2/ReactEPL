@@ -34,7 +34,7 @@ var ShowSquadButton = React.createClass({
       } else if (this.props.visible === true){
         return <button className="button primary column small-2"  onClick={this.props.onClick}>Hide Squad</button>
       }
-    }  
+    }
 })
 
 module.exports = ShowSquadButton;
