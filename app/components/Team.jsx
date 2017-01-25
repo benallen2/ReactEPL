@@ -42,7 +42,7 @@ var Team = React.createClass({
             <div className="column small-1"><strong>Goals</strong></div>
             <div className="column small-2"></div>
           </div>
-          <div className="row align-middle">
+          <div className="row align-middle stats">
             <div className="column small-1">{this.props.team.rank}</div>
             <div className="column small-3"><img src={this.props.team.crest} style={{height:'2.5rem'}}/> {this.props.team.teamName}</div>
             <div className="column small-1">{this.props.team.points}</div>
