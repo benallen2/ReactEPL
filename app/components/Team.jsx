@@ -33,7 +33,7 @@ var Team = React.createClass({
     return (
 
       <div>
-        <div className="callout secondary">
+        <div className="callout team">
           <div className="row">
             <div className="column small-1"><strong>Rank</strong></div>
             <div className="column small-3"><strong>Team</strong></div>

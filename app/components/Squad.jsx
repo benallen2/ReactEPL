@@ -6,9 +6,9 @@ var Squad = React.createClass({
   render: function (){
     if(this.props.visible === true){
       return (
-        <div className="callout primary">
+        <div className="callout primary squad">
           <div className="row">
-            <div className="column small-1"><strong>Jersey #</strong></div>
+            <div className="column small-1"><strong>Jersey</strong></div>
             <div className="column small-3"><strong>Name</strong></div>
             <div className="column small-2"><strong>Position</strong></div>
             <div className="column small-2"><strong>Nationality</strong></div>

@@ -9,7 +9,7 @@ var TeamsList = React.createClass({
   render: function () {
     var that = this;
     return (
-      <div>
+      <div className="teamList">
         {this.props.teams.map((team, index) => {
           return (
             <Team key={ `${index}` } team={team}/>

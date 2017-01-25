@@ -26,7 +26,10 @@ var Main = React.createClass({
 
     return (
       <div className="main">
-        <h2 style={{textAlign: 'center'}}>Premier League 2016/17</h2>
+        <div className="topbar">
+          <h2>English Premier League 2016/17</h2>
+        </div>
+
         <TeamsList teams={teams} />
       </div>
     )
