@@ -27,7 +27,7 @@ var Main = React.createClass({
     return (
       <div className="main">
         <div className="topbar">
-          <h2>English Premier League 2016/17</h2>
+          <h3>English Premier League 2016/17</h3>
           <h5>Current Standings</h5>
         </div>
 

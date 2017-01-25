@@ -3,3 +3,9 @@
   height: 90vh;
   overflow-y: scroll;
 }
+
+@media screen and (max-height: 770px){
+  .teamList {
+    height: 85vh;
+  }
+}

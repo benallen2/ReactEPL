@@ -10,3 +10,10 @@
   height: 10vh;
   text-align: center;
 }
+
+@media screen and (max-height: 770px){
+
+  .topbar {
+    height: 15vh;
+  }
+}
